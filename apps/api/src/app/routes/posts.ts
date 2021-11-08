@@ -20,3 +20,11 @@ postsRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
   ).find().toArray();
   res.json(posts);
 });
+
+postsRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+  const { insertedId } = await getCollection<Post>(
+    req.app,
+    'posts'
+  ).insertOne(req.body)
+  res.json({ _id: insertedId });
+});

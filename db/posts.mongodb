@@ -4,13 +4,13 @@ db.posts.drop();
 
 db.posts.insertMany([
   {
-    '_id': 0,
+    '_id': "60b39cf75886657cb75527bb",
     'image': 'https://i.pinimg.com/originals/10/7a/97/107a97ca5bd4a571edcebec54a66fc32.jpg',
     'message': 'this is fine',
     'username': 'usuario 1'
   },
   {
-    '_id': 1,
+    '_id': "60b3a8021ce57d7f961a2c13",
     'image': 'https://conteudo.imguol.com.br/blogs/57/files/2019/02/Meme-Anderson-Silva-Spider.jpg',
     'message': `it's you`,
     'username': 'usuario 2'
