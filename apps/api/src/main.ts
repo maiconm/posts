@@ -3,6 +3,7 @@ import * as cors from 'cors';
 
 import { MongoClient } from 'mongodb';
 import { postsRouter } from './app/routes/posts';
+import { json } from 'body-parser';
 
 MongoClient.connect(
   'mongodb://angular-aula03_devcontainer_db_1:27017',
@@ -16,6 +17,8 @@ MongoClient.connect(
 const app = express();
 
 app.use(cors());
+
+app.use(json());
 
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
