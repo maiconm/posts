@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    AppRoutingModule,
   ],
   providers: [
   ],
