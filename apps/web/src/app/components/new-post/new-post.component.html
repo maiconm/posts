@@ -22,12 +22,18 @@
       ></textarea>
     </mat-form-field>
   </div>
-  <button
-    mat-button
-    color="primary"
-    type="submit"
-    [disabled]="formGroup.invalid"
-  >
-    <mat-icon>send</mat-icon>
-  </button>
+  <mat-spinner
+    [diameter]="30"
+    *ngIf="loading; else button"
+  ></mat-spinner>
+  <ng-template #button>
+    <button
+      mat-button
+      color="primary"
+      type="submit"
+      [disabled]="loading || formGroup.invalid"
+    >
+      <mat-icon>send</mat-icon>
+    </button>
+  </ng-template>
 </form>

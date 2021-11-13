@@ -10,6 +10,8 @@ import { PostService } from '../../services/post.service';
 })
 export class NewPostComponent {
 
+  public loading = false;
+
   public formGroup = this.formBuilder.group({
     image: ['', Validators.required],
     message: ['', Validators.required],
@@ -22,7 +24,14 @@ export class NewPostComponent {
   }
 
   public submitPost(): void {
-    this.postService.post(this.formGroup.value).pipe(take(1)).subscribe();
+    this.loading = true;
+    this.postService.post(this.formGroup.value).pipe(take(1)).subscribe(() => {
+      this.loading = false;
+      this.formGroup.reset();
+    },
+    () => {
+      this.loading = false;
+    });
   }
 
 }
