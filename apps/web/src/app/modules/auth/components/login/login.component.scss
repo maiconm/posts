@@ -1,0 +1,12 @@
+:host {
+  width: 100%;
+  display: grid;
+  place-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 225px;
+  }
+
+}
