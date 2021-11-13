@@ -2,8 +2,9 @@ import * as express from 'express';
 import * as cors from 'cors';
 
 import { MongoClient } from 'mongodb';
-import { postsRouter } from './app/routes/posts';
 import { json } from 'body-parser';
+
+import { postsRouter } from './app/routes/posts';
 import { authRouter } from './app/routes/auth';
 
 MongoClient.connect(
