@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppErrorHandler } from './app-error-handler';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AppErrorHandler } from './app-error-handler';
     ListComponent,
     CardComponent,
     NewPostComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
