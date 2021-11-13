@@ -1,3 +1,5 @@
 <posts-header #header></posts-header>
-<posts-new-post *ngIf="header.hasToken"></posts-new-post>
-<router-outlet></router-outlet>
+<div class="container">
+  <posts-new-post *ngIf="header.hasToken"></posts-new-post>
+  <router-outlet></router-outlet>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'posts-new-post',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent {
+
+  public formGroup = this.formBuilder.group({
+    image: ['', Validators.required],
+    message: ['', Validators.required],
+  });
+
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {
+  }
 
 }

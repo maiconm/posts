@@ -1,1 +1,28 @@
-<p>new-post works!</p>
+<form [formGroup]="formGroup">
+  <div class="inputs">
+    <mat-form-field appearance="fill">
+      <mat-label>URL da imagem</mat-label>
+      <input
+        matInput
+        formControlName="image"
+        placeholder="Ex. Pizza"
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Mensagem</mat-label>
+      <textarea
+        cdkTextareaAutosize
+        cdkAutosizeMaxRows="2"
+        matInput
+        formControlName="message"
+        placeholder="Mensagem"
+      ></textarea>
+    </mat-form-field>
+  </div>
+  <button
+    mat-button
+    color="primary"
+  >
+    <mat-icon>send</mat-icon>
+  </button>
+</form>

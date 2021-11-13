@@ -15,6 +15,10 @@ import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './modules/auth/auth.module';
 import { NewPostComponent } from './components/new-post/new-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { NewPostComponent } from './components/new-post/new-post.component';
     MatCardModule,
     HttpClientModule,
     AuthModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
