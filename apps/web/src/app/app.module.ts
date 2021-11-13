@@ -14,6 +14,7 @@ import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './modules/auth/auth.module';
+import { NewPostComponent } from './components/new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AuthModule } from './modules/auth/auth.module';
     HeaderComponent,
     ListComponent,
     CardComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,

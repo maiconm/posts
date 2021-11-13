@@ -1,2 +1,3 @@
-<posts-header></posts-header>
+<posts-header #header></posts-header>
+<posts-new-post *ngIf="header.hasToken"></posts-new-post>
 <router-outlet></router-outlet>
