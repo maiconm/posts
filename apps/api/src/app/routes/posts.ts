@@ -22,7 +22,7 @@ postsRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
     req.app,
     'posts',
   ).find().toArray();
-  res.json(posts);
+  res.json(posts.reverse());
 });
 
 postsRouter.post('/', requireJwtToken, async (req: Request, res: Response, next: NextFunction) => {
@@ -35,5 +35,5 @@ postsRouter.post('/', requireJwtToken, async (req: Request, res: Response, next:
     req.app,
     'posts'
   ).insertOne(post);
-  res.json({ _id: insertedId, date: post.date });
+  res.json({ _id: insertedId, date: post.date, user: login });
 });

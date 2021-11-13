@@ -7,4 +7,8 @@ export interface PostOutput {
    * Data do post criado.
    */
   date: number;
+  /**
+   * Login do usuario.
+   */
+  user: string;
 }
