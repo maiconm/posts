@@ -1,4 +1,7 @@
-<form [formGroup]="formGroup">
+<form
+  [formGroup]="formGroup"
+  (ngSubmit)="submitPost()"
+>
   <div class="inputs">
     <mat-form-field appearance="fill">
       <mat-label>URL da imagem</mat-label>
@@ -22,6 +25,7 @@
   <button
     mat-button
     color="primary"
+    type="submit"
   >
     <mat-icon>send</mat-icon>
   </button>

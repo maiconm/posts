@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Post, PostOutput } from '@posts/common';
+import { Post, PostInput, PostOutput } from '@posts/common';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -27,8 +27,8 @@ export class PostService {
    * @param post Post.
    * @returns { PostOutput } ID e data do Post criado.
    */
-  public post(post: Post): Observable<PostOutput> {
-    return this.http.post<PostOutput>(`${this.apiBaseUrl}/posts`, post.asInput())
+  public post(post: PostInput): Observable<PostOutput> {
+    return this.http.post<PostOutput>(`${this.apiBaseUrl}/posts`, post);
   }
 
 }
