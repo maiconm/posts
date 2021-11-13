@@ -28,5 +28,5 @@ postsRouter.post('/', async (req: Request, res: Response, next: NextFunction) =>
     req.app,
     'posts'
   ).insertOne(post);
-  res.json({ _id: insertedId });
+  res.json({ _id: insertedId, date: post.date });
 });
