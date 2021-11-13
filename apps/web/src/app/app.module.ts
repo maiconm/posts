@@ -9,11 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
