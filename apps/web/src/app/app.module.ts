@@ -12,6 +12,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,13 @@ import { CardComponent } from './components/card/card.component';
     MatButtonModule,
     AppRoutingModule,
     MatCardModule,
+    HttpClientModule,
   ],
   providers: [
+    {
+      provide: 'API_BASE_URL',
+      useValue: 'http://localhost:3333/api',
+    },
   ],
   bootstrap: [
     AppComponent,
