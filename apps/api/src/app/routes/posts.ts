@@ -22,9 +22,11 @@ postsRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
 });
 
 postsRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+  const post: Post = req.body;
+  post.date = Date.now();
   const { insertedId } = await getCollection<Post>(
     req.app,
     'posts'
-  ).insertOne(req.body)
+  ).insertOne(post);
   res.json({ _id: insertedId });
 });
