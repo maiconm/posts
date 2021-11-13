@@ -6,6 +6,7 @@ import {
 } from 'express';
 
 import {
+  AuthResult,
   User,
 } from '@posts/common';
 
@@ -36,7 +37,7 @@ authRouter.post('/login', async (req: Request, res: Response, next: NextFunction
     res.json({
       jwt: createToken(user),
       user: sanitizeUser(user),
-    });
+    } as AuthResult);
   } else {
     res.status(401);
     next(new Error('Login ou senha errados'));
