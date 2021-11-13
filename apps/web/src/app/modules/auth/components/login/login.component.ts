@@ -45,7 +45,13 @@ export class LoginComponent {
       catchError((err: HttpErrorResponse) => {
         this.loading = false;
         if (err.status === 401) {
-          this.snackBar.open('Usuário ou senha inválidos', 'Ok')
+          this.snackBar.open(
+            'Usuário ou senha inválidos',
+            'Ok',
+            {
+              duration: 3000,
+            }
+          );
           return of(undefined);
         }
         throw err;
@@ -56,6 +62,13 @@ export class LoginComponent {
         window.localStorage.setItem('jwt', result.jwt);
         setTimeout(() => {
           this.router.navigate([ '/' ]);
+          this.snackBar.open(
+            `Bem-vindo, ${result.user.login}`,
+            'Ok',
+            {
+              duration: 3000,
+            }
+          );
         }, 1000);
       }
     });
