@@ -22,4 +22,9 @@ export class HeaderComponent {
       this.hasToken = !!window.localStorage.getItem('jwt');
     });
   }
+
+  public logout(): void {
+    window.localStorage.removeItem('jwt');
+    this.hasToken = false;
+  }
 }

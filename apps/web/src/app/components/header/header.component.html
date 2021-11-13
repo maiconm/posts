@@ -4,10 +4,18 @@
   </a>
   <span class="spacer"></span>
   <a
-    *ngIf="!hasToken"
+    *ngIf="!hasToken; else logoutButton"
     mat-icon-button
     [routerLink]="['/login']"
   >
     <mat-icon>login</mat-icon>
   </a>
+  <ng-template #logoutButton>
+    <a
+      mat-icon-button
+      (click)="logout()"
+    >
+      <mat-icon>logout</mat-icon>
+    </a>
+  </ng-template>
 </mat-toolbar>
