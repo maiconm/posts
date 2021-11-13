@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ListComponent } from './components/list/list.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatCardModule,
     HttpClientModule,
+    AuthModule,
   ],
   providers: [
     {
