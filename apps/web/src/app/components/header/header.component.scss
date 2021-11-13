@@ -1,6 +1,11 @@
 mat-toolbar {
   margin-bottom: 10px;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .spacer {
     flex: 1 1 auto;
   }

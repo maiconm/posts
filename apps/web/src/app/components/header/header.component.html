@@ -1,7 +1,12 @@
 <mat-toolbar>
-  <span>Posts</span>
+  <a [routerLink]="['/posts']">
+    <span>Posts</span>
+  </a>
   <span class="spacer"></span>
-  <button mat-icon-button>
+  <a
+    mat-icon-button
+    [routerLink]="['/login']"
+  >
     <mat-icon>login</mat-icon>
-  </button>
+  </a>
 </mat-toolbar>
