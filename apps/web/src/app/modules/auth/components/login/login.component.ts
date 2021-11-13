@@ -17,7 +17,9 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  hide = true;
+  public hide = true;
+
+  public loading = false;
 
   public formGroup = this.formBuilder.group({
     login: ['', Validators.required],
@@ -36,10 +38,12 @@ export class LoginComponent {
    * Efetua login.
    */
   public signIn(): void {
+    this.loading = true;
     const body: Pick<User, 'login' | 'password'> = this.formGroup.value;
     this.authService.login(body).pipe(
       take(1),
       catchError((err: HttpErrorResponse) => {
+        this.loading = false;
         if (err.status === 401) {
           this.snackBar.open('Usuário ou senha inválidos', 'Ok')
           return of(undefined);
@@ -47,6 +51,7 @@ export class LoginComponent {
         throw err;
       }),
     ).subscribe((result?: AuthResult) => {
+      this.loading = false;
       if (result?.jwt) {
         window.localStorage.setItem('jwt', result.jwt);
         setTimeout(() => {
