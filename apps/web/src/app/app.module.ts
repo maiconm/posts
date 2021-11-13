@@ -5,17 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PostsComponent } from './components/posts/posts.component';
+import { ListComponent } from './components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    PostsComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +25,7 @@ import { PostsComponent } from './components/posts/posts.component';
     MatIconModule,
     MatButtonModule,
     AppRoutingModule,
+    MatCardModule,
   ],
   providers: [
   ],

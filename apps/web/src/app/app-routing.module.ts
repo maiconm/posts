@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostsComponent } from './components/posts/posts.component';
+import { ListComponent } from './components/list/list.component';
 
 const routes: Routes = [
   {
@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'posts',
-    component: PostsComponent,
+    component: ListComponent,
   }
 ];
 
