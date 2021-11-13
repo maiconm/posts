@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AppErrorHandler } from './app-error-handler';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     {
       provide: 'API_BASE_URL',
       useValue: 'http://localhost:3333/api',
+    },
+    {
+      provide: ErrorHandler,
+      useClass: AppErrorHandler,
     },
   ],
   bootstrap: [
