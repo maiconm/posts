@@ -1,3 +1,5 @@
+import { PostInput } from "@posts/common";
+
 export class Post {
 
   constructor(
@@ -6,6 +8,13 @@ export class Post {
     public image: string,
     public message: string,
     public user: string,
-  ) {
-  }
+    ) {
+    }
+
+    public asInput(): PostInput {
+      return {
+        image: this.image,
+        message: this.message
+      };
+    }
 }
