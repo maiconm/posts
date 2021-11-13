@@ -16,9 +16,9 @@ export class ListComponent {
   public posts$: Observable<Post[]>;
 
   constructor(
-    private postService: PostService
+    private postService: PostService,
   ) {
-    this.posts$ = this.postService.posts$.asObservable();
+    this.posts$ = this.postService.get();
   }
 
 }

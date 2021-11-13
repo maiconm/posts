@@ -8,22 +8,17 @@ import { Observable, Subject } from 'rxjs';
 })
 export class PostService {
 
-  public posts$ = new Subject<Post[]>();
-
   constructor(
     @Inject('API_BASE_URL') private apiBaseUrl: string,
     private http: HttpClient,
   ) {
-    this.get().subscribe(posts => {
-      this.posts$.next(posts);
-    });
   }
 
   /**
    * Obtem os Posts da API.
    * @returns Posts
    */
-  private get(): Observable<Post[]> {
+  public get(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiBaseUrl}/posts`);
   }
 
