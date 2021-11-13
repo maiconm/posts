@@ -1,6 +1,8 @@
 import {
   Component,
 } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'posts-header',
@@ -8,4 +10,16 @@ import {
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  public hasToken = false;
+
+  constructor(
+    private router: Router,
+  ) {
+    this.router.events.pipe(
+      filter((event) => event instanceof RouterEvent)
+    ).subscribe(() => {
+      this.hasToken = !!window.localStorage.getItem('jwt');
+    });
+  }
 }

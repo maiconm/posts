@@ -4,6 +4,7 @@
   </a>
   <span class="spacer"></span>
   <a
+    *ngIf="!hasToken"
     mat-icon-button
     [routerLink]="['/login']"
   >
