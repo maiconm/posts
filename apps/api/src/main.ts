@@ -4,6 +4,7 @@ import * as cors from 'cors';
 import { MongoClient } from 'mongodb';
 import { postsRouter } from './app/routes/posts';
 import { json } from 'body-parser';
+import { authRouter } from './app/routes/auth';
 
 MongoClient.connect(
   'mongodb://angular-aula03_devcontainer_db_1:27017',
@@ -23,6 +24,8 @@ app.use(json());
 app.get('/api', (req, res) => {
   res.send({ message: 'Welcome to api!' });
 });
+
+app.use('/api/auth', authRouter);
 
 app.use('/api/posts', postsRouter);
 
