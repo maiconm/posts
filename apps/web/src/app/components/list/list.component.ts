@@ -2,8 +2,6 @@ import {
   Component,
 } from '@angular/core';
 
-import { Post } from '@posts/common';
-import { Observable } from 'rxjs';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -13,12 +11,9 @@ import { PostService } from '../../services/post.service';
 })
 export class ListComponent {
 
-  public posts$: Observable<Post[]>;
-
   constructor(
-    private postService: PostService,
+    public postService: PostService,
   ) {
-    this.posts$ = this.postService.get();
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Post } from '@posts/common';
 import { take } from 'rxjs/operators';
 import { PostService } from '../../services/post.service';
 
@@ -25,12 +26,10 @@ export class NewPostComponent {
 
   public submitPost(): void {
     this.loading = true;
-    this.postService.post(this.formGroup.value).pipe(take(1)).subscribe(() => {
+    this.postService.post(this.formGroup.value).pipe(
+    ).subscribe(() => {
       this.loading = false;
       this.formGroup.reset();
-    },
-    () => {
-      this.loading = false;
     });
   }
 
