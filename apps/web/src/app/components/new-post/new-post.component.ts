@@ -16,8 +16,12 @@ export class NewPostComponent {
   public loading = false;
 
   public formGroup = this.formBuilder.group({
-    image: ['', Validators.required],
-    message: ['', Validators.required],
+    image: [
+      '', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]
+    ],
+    message: [
+      '', [Validators.required, Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)]
+    ],
   });
 
   constructor(
