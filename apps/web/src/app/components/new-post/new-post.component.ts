@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Post } from '@posts/common';
-import { take } from 'rxjs/operators';
+import { Component, ViewChild, } from '@angular/core';
+import { FormBuilder, FormGroupDirective, Validators } from '@angular/forms';
+
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -10,6 +9,9 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./new-post.component.scss']
 })
 export class NewPostComponent {
+
+  @ViewChild(FormGroupDirective)
+  public formDirective?: FormGroupDirective;
 
   public loading = false;
 
@@ -29,7 +31,7 @@ export class NewPostComponent {
     this.postService.post(this.formGroup.value).pipe(
     ).subscribe(() => {
       this.loading = false;
-      this.formGroup.reset();
+      this.formDirective?.resetForm();
     });
   }
 
