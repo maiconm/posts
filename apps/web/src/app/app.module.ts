@@ -22,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { SrcDebounceDirective } from './directives/src-debounce.directive';
 import { OwnerPostPipe } from './pipes/owner-post.pipe';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -35,6 +36,7 @@ registerLocaleData(localePt, 'pt-BR');
     HomeComponent,
     SrcDebounceDirective,
     OwnerPostPipe,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
