@@ -1,7 +1,12 @@
-import { HttpErrorResponse } from "@angular/common/http";
-import { ErrorHandler, Injectable, NgZone } from "@angular/core";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { Router } from "@angular/router";
+import { HttpErrorResponse } from '@angular/common/http';
+import {
+  ErrorHandler,
+  Injectable,
+  NgZone,
+} from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from './modules/auth/services/auth/auth.service';
 
 @Injectable()
 export class AppErrorHandler extends ErrorHandler {
@@ -10,6 +15,7 @@ export class AppErrorHandler extends ErrorHandler {
     private ngZone: NgZone,
     private snackBar: MatSnackBar,
     private router: Router,
+    private authService: AuthService,
   ) {
     super();
   }
@@ -41,7 +47,7 @@ export class AppErrorHandler extends ErrorHandler {
           },
         );
         try {
-          window.localStorage.removeItem('jwt');
+          this.authService.logout();
           console.log('JWT antigo removido');
         } catch (error) {
           console.log('não tem JWT');

@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, UrlTree } from '@angular/router';
+import {
+  CanActivate,
+  Router,
+} from '@angular/router';
 import { Observable } from 'rxjs';
+import {
+  map,
+} from 'rxjs/operators';
+
+import { AuthService } from './services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,17 +16,21 @@ import { Observable } from 'rxjs';
 export class LoginGuard implements CanActivate {
 
   constructor(
+    private authService: AuthService,
     private router: Router,
   ) {
   }
 
-  canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const hasToken = window.localStorage.getItem('jwt');
-    if (hasToken) {
-      this.router.navigate(['/posts']);
-      return false;
-    }
-    return true;
+  public canActivate(): Observable<boolean> {
+    return this.authService.hasJwt$.pipe(
+      map(hasJwt => {
+        if (hasJwt) {
+          this.router.navigate(['/posts']);
+          return false;
+        }
+        return true;
+      }),
+    );
   }
 
 }

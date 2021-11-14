@@ -4,7 +4,7 @@
   </a>
   <span class="spacer"></span>
   <a
-    *ngIf="!hasToken; else logoutButton"
+    *ngIf="(authService.hasJwt$ | async) !== true; else logoutButton"
     mat-icon-button
     [routerLink]="['/login']"
   >
@@ -13,7 +13,7 @@
   <ng-template #logoutButton>
     <a
       mat-icon-button
-      (click)="logout()"
+      (click)="authService.logout()"
     >
       <mat-icon>logout</mat-icon>
     </a>

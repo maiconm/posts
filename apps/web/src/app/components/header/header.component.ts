@@ -1,8 +1,7 @@
 import {
   Component,
 } from '@angular/core';
-import { Router, RouterEvent } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { AuthService } from '../../modules/auth/services/auth/auth.service';
 
 @Component({
   selector: 'posts-header',
@@ -11,20 +10,8 @@ import { filter } from 'rxjs/operators';
 })
 export class HeaderComponent {
 
-  public hasToken = false;
-
   constructor(
-    private router: Router,
+    public authService: AuthService,
   ) {
-    this.router.events.pipe(
-      filter((event) => event instanceof RouterEvent)
-    ).subscribe(() => {
-      this.hasToken = !!window.localStorage.getItem('jwt');
-    });
-  }
-
-  public logout(): void {
-    window.localStorage.removeItem('jwt');
-    this.hasToken = false;
   }
 }

@@ -59,7 +59,6 @@ export class LoginComponent {
     ).subscribe((result?: AuthResult) => {
       this.loading = false;
       if (result?.jwt) {
-        window.localStorage.setItem('jwt', result.jwt);
         setTimeout(() => {
           this.router.navigate([ '/' ]);
           this.snackBar.open(

@@ -1,1 +1,4 @@
-<p>home works!</p>
+<posts-new-post
+  *ngIf="authService.hasJwt$ | async"
+></posts-new-post>
+<posts-list></posts-list>
