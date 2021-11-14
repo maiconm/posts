@@ -33,5 +33,5 @@ Aplicação com MEAN Stack para a matéria WEB03 Angular - UTFPR Especializaçã
 * Logins disponíveis:
     * Login: `admin`
     * Senha: `admin`
-    * Login: `teste`
-    * Senha: `teste`
+    * Login: `user`
+    * Senha: `user`
