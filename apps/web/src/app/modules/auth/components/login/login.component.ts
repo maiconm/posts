@@ -66,7 +66,7 @@ export class LoginComponent {
         }
         throw err;
       }),
-    ).subscribe(this.loginSuccessful);
+    ).subscribe((result) => this.loginSuccessful(result));
   }
 
   /**
