@@ -4,8 +4,10 @@ import {
   Injectable,
   NgZone,
 } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { AuthService } from './modules/auth/services/auth/auth.service';
 
 @Injectable()

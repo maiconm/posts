@@ -15,12 +15,24 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 })
 export class SrcDebounceDirective implements OnChanges, OnDestroy {
 
+  /**
+   * String do URL após o debouce.
+   */
   private srcDebounced = '';
 
+  /**
+   * Subject da string do URL.
+   */
   private src$ = new Subject<string>();
 
+  /**
+   * Gerencia as inscrições.
+   */
   private subUnsubscribe = new Subject<void>();
 
+  /**
+   * Valor do URL passado para a diretiva.
+   */
   @Input()
   public postsSrcDebounce?: string;
 
@@ -45,6 +57,9 @@ export class SrcDebounceDirective implements OnChanges, OnDestroy {
     this.subUnsubscribe.complete();
   }
 
+  /**
+   * Binding do atributo `src`.
+   */
   @HostBinding('attr.src')
   public get src(): string {
     return this.srcDebounced;

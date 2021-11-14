@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { of } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
@@ -17,10 +18,19 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  /**
+   * Estado do campo de senha (ocultar/mostrar senha).
+   */
   public hide = true;
 
+  /**
+   * Estado do carregamento.
+   */
   public loading = false;
 
+  /**
+   * Formulário.
+   */
   public formGroup = this.formBuilder.group({
     login: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(3),]],
@@ -56,20 +66,26 @@ export class LoginComponent {
         }
         throw err;
       }),
-    ).subscribe((result?: AuthResult) => {
-      this.loading = false;
-      if (result?.jwt) {
-        setTimeout(() => {
-          this.router.navigate([ '/' ]);
-          this.snackBar.open(
-            `Bem-vindo, ${result.user.login}`,
-            'Ok',
-            {
-              duration: 3000,
-            }
-          );
-        }, 1000);
-      }
-    });
+    ).subscribe(this.loginSuccessful);
+  }
+
+  /**
+   * Trata resposta de login da API.
+   * @param result Resposta da API de login
+   */
+  private loginSuccessful(result?: AuthResult): void {
+    this.loading = false;
+    if (result?.jwt) {
+      setTimeout(() => {
+        this.router.navigate([ '/' ]);
+        this.snackBar.open(
+          `Bem-vindo, ${result.user.login}`,
+          'Ok',
+          {
+            duration: 3000,
+          }
+        );
+      }, 500);
+    }
   }
 }

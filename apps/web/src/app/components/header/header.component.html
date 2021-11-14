@@ -17,16 +17,16 @@
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
-        {{ authService.login$ | async }}
         <mat-icon>account_circle</mat-icon>
+        {{ authService.login$ | async }}
       </button>
       <button
         mat-menu-item
         (click)="authService.logout()"
         matTooltip="Logout"
       >
-        Logout
         <mat-icon>logout</mat-icon>
+        Logout
       </button>
     </mat-menu>
   </ng-template>

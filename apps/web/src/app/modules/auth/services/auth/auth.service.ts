@@ -20,6 +20,9 @@ import {
 })
 export class AuthService {
 
+  /**
+   * Gerencia o estado do Login.
+   */
   public login$ = new ReplaySubject<string>(1);
 
   constructor(
@@ -30,6 +33,11 @@ export class AuthService {
     this.login$.next(login ? login : '');
   }
 
+  /**
+   * Autentica usuário.
+   * @param user Login e senha
+   * @returns Login e JWT.
+   */
   public login(user: Pick<User, 'login' | 'password'>): Observable<AuthResult> {
     return this.httpClient.post<AuthResult>(
       `${this.apiBaseUrl}/auth/login`,
@@ -43,6 +51,9 @@ export class AuthService {
     );
   }
 
+  /**
+   * Remove as credenciais do usuário.
+   */
   public logout(): void {
     window.localStorage.removeItem('jwt');
     window.localStorage.removeItem('login');

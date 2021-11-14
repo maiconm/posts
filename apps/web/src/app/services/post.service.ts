@@ -23,6 +23,9 @@ import {
 })
 export class PostService {
 
+  /**
+   * Posts.
+   */
   public posts$ = new ReplaySubject<Post[]>(1);
 
   constructor(
@@ -64,7 +67,7 @@ export class PostService {
             );
             posts = [newPost, ...posts];
             this.posts$.next(posts);
-          })
+          }),
         )
       })
     );

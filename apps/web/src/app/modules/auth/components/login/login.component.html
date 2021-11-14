@@ -12,7 +12,9 @@
       matInput
       placeholder="Jeff"
     >
-    <mat-icon matSuffix>person</mat-icon>
+    <mat-icon matSuffix>
+      person
+    </mat-icon>
     <mat-error *ngIf="formGroup.get('login')?.hasError('required')">
       Usuário <strong>obrigatório</strong>
     </mat-error>
@@ -31,9 +33,12 @@
       mat-icon-button
       matSuffix
       (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
     >
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      <mat-icon>
+        {{hide ? 'visibility_off' : 'visibility'}}
+      </mat-icon>
     </button>
     <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
       Senha <strong>obrigatório</strong>
