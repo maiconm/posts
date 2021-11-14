@@ -1,4 +1,4 @@
 <posts-new-post
-  *ngIf="authService.hasJwt$ | async"
+  *ngIf="authService.login$ | async"
 ></posts-new-post>
 <posts-list></posts-list>

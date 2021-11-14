@@ -22,9 +22,9 @@ export class LoginGuard implements CanActivate {
   }
 
   public canActivate(): Observable<boolean> {
-    return this.authService.hasJwt$.pipe(
-      map(hasJwt => {
-        if (hasJwt) {
+    return this.authService.login$.pipe(
+      map(login => {
+        if (login.length) {
           this.router.navigate(['/posts']);
           return false;
         }

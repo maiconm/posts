@@ -20,14 +20,14 @@ import {
 })
 export class AuthService {
 
-  public hasJwt$ = new ReplaySubject<boolean>(1);
+  public login$ = new ReplaySubject<string>(1);
 
   constructor(
     @Inject('API_BASE_URL') private apiBaseUrl: string,
     private httpClient: HttpClient,
   ) {
-    const hasJwt = window.localStorage.getItem('jwt');
-    this.hasJwt$.next(!!hasJwt);
+    const login = window.localStorage.getItem('login');
+    this.login$.next(login ? login : '');
   }
 
   public login(user: Pick<User, 'login' | 'password'>): Observable<AuthResult> {
@@ -37,14 +37,16 @@ export class AuthService {
     ).pipe(
       tap(user => {
         window.localStorage.setItem('jwt', user.jwt);
-        this.hasJwt$.next(true);
+        window.localStorage.setItem('login', user.user.login);
+        this.login$.next(user.user.login);
       })
     );
   }
 
   public logout(): void {
     window.localStorage.removeItem('jwt');
-    this.hasJwt$.next(false);
+    window.localStorage.removeItem('login');
+    this.login$.next('');
   }
 
 }

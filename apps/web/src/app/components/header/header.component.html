@@ -4,7 +4,7 @@
   </a>
   <span class="spacer"></span>
   <a
-    *ngIf="(authService.hasJwt$ | async) !== true; else loggedMenu"
+    *ngIf="!(authService.login$ | async)?.length; else loggedMenu"
     mat-icon-button
     matTooltip="Login"
     [routerLink]="['/login']"
@@ -16,6 +16,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        {{ authService.login$ | async }}
+        <mat-icon>account_circle</mat-icon>
+      </button>
       <button
         mat-menu-item
         (click)="authService.logout()"

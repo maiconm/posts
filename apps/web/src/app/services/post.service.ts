@@ -1,8 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { Post, PostInput, PostOutput } from '@posts/common';
-import { Observable, ReplaySubject, Subject } from 'rxjs';
-import { map, mergeMap, take, tap } from 'rxjs/operators';
+import {
+  Inject,
+  Injectable,
+} from '@angular/core';
+import {
+  Post,
+  PostInput,
+  PostOutput,
+} from '@posts/common';
+import {
+  Observable,
+  ReplaySubject,
+} from 'rxjs';
+import {
+  mergeMap,
+  take,
+  tap,
+} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
