@@ -1,3 +1,11 @@
+<h2 *ngIf="!image.value; else imagePreview">
+  Faça um post
+</h2>
+<ng-template #imagePreview>
+  <img
+    [src]="image.value"
+  >
+</ng-template>
 <form
   [formGroup]="formGroup"
   (ngSubmit)="submitPost()"
@@ -6,6 +14,7 @@
     <mat-form-field appearance="fill">
       <mat-label>URL da imagem</mat-label>
       <input
+        #image
         matInput
         formControlName="image"
         placeholder="Ex. https://link.da.imagem.com/pudim.jpg"
@@ -17,13 +26,13 @@
         #message
         maxlength="150"
         cdkTextareaAutosize
-        cdkAutosizeMaxRows="2"
+        cdkAutosizeMaxRows="3"
         matInput
         formControlName="message"
         placeholder="Mensagem"
       ></textarea>
       <mat-hint align="end">
-        {{message.value.length}} / 150
+        {{ message.value.length }} / 150
       </mat-hint>
     </mat-form-field>
   </div>
