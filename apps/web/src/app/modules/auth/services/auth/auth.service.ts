@@ -3,6 +3,7 @@ import {
   Inject,
   Injectable,
 } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   AuthResult,
   User,
@@ -26,6 +27,7 @@ export class AuthService {
   public login$ = new ReplaySubject<string>(1);
 
   constructor(
+    private snackBar: MatSnackBar,
     @Inject('API_BASE_URL') private apiBaseUrl: string,
     private httpClient: HttpClient,
   ) {
@@ -58,6 +60,13 @@ export class AuthService {
     window.localStorage.removeItem('jwt');
     window.localStorage.removeItem('login');
     this.login$.next('');
+    this.snackBar.open(
+      'Deslogado',
+      'ok',
+      {
+        duration: 3000,
+      },
+    );
   }
 
 }
