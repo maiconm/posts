@@ -8,7 +8,7 @@ import { postsRouter } from './app/routes/posts';
 import { authRouter } from './app/routes/auth';
 
 MongoClient.connect(
-  'mongodb://angular-aula03_devcontainer_db_1:27017',
+  'mongodb://posts_devcontainer_db_1:27017',
 ).then((client: MongoClient) => {
   app.locals.db = client.db('post');
   console.log('Conectado ao MongoDB.');
