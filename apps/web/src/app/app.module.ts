@@ -18,6 +18,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { AppErrorHandler } from './app-error-handler';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { SrcDebounceDirective } from './directives/src-debounce.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SharedModule } from './modules/shared/shared.module';
     CardComponent,
     NewPostComponent,
     HomeComponent,
+    SrcDebounceDirective,
   ],
   imports: [
     BrowserModule,

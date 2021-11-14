@@ -3,7 +3,8 @@
 </h2>
 <ng-template #imagePreview>
   <img
-    [src]="image.value"
+    [postsSrcDebounce]="image.value"
+    alt="Pre-visualizar imagem"
   >
 </ng-template>
 <form
