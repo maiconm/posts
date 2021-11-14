@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -35,6 +37,8 @@ import { SharedModule } from './modules/shared/shared.module';
     HttpClientModule,
     AuthModule,
     SharedModule,
+    MatTooltipModule,
+    MatMenuModule,
   ],
   providers: [
     {

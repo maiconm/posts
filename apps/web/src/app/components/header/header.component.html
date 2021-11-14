@@ -4,18 +4,26 @@
   </a>
   <span class="spacer"></span>
   <a
-    *ngIf="(authService.hasJwt$ | async) !== true; else logoutButton"
+    *ngIf="(authService.hasJwt$ | async) !== true; else loggedMenu"
     mat-icon-button
+    matTooltip="Login"
     [routerLink]="['/login']"
   >
     <mat-icon>login</mat-icon>
   </a>
-  <ng-template #logoutButton>
-    <a
-      mat-icon-button
-      (click)="authService.logout()"
-    >
-      <mat-icon>logout</mat-icon>
-    </a>
+  <ng-template #loggedMenu>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        (click)="authService.logout()"
+        matTooltip="Logout"
+      >
+        Logout
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-menu>
   </ng-template>
 </mat-toolbar>
