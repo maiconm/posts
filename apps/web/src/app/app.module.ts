@@ -1,7 +1,9 @@
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +21,9 @@ import { AppErrorHandler } from './app-error-handler';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { SrcDebounceDirective } from './directives/src-debounce.directive';
+import { OwnerPostPipe } from './pipes/owner-post.pipe';
+
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
@@ -29,6 +34,7 @@ import { SrcDebounceDirective } from './directives/src-debounce.directive';
     NewPostComponent,
     HomeComponent,
     SrcDebounceDirective,
+    OwnerPostPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,10 @@ import { SrcDebounceDirective } from './directives/src-debounce.directive';
     {
       provide: ErrorHandler,
       useClass: AppErrorHandler,
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
     },
   ],
   bootstrap: [
